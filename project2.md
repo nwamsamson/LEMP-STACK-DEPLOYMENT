@@ -1,9 +1,10 @@
 # LEMP STACK IMPLEMENTATION
 
-For this project, I will be deploying a LEMP STACK 
+For this project, I will be deploying a LEMP STACK.
+
 LEMP- Linux, Nginx, Mysql, PHP
 
-## 1. STEP 1- INSTALLING THE NGINX WEB SERVER
+## 1. INSTALLING THE NGINX WEB SERVER
 
 An AWS EC2 instance is running with Ubuntu OS. 
 To begin, I installed nginx web server using the following commands:
