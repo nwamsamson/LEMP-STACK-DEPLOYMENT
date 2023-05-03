@@ -87,7 +87,9 @@ Test validation was okay: ![config_test_validation](./images/config_file_test.PN
 I created an index.html file in the web root (/var/www/lempproject) to test that my new server block works as expected using the following command: 
 `sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/lempproject/index.html`
 
-This was tested on my browser (http://<Public-IP-Address>:80) and the result is : ![test_indexfile](./images/script_test.PNG)
+This was tested on my browser (http://Public-IP-Address:80) and the result is :
+
+![test_indexfile](./images/script_test.PNG)
 
 ## 5. TESTING PHP WITH NGINX 
 
@@ -95,8 +97,10 @@ The LEMP stack is now completely set up and now to test that the nginx can corre
 
 I will do this by creating a PHP file in my document root using the command `sudo vim /var/www/lempproject/info.php`
 and the following code is written to return info about the server: 
+```
 <?php
 phpinfo();
+```
 
 Testing this out on the web browser using the URL ('http://`server_domain_or_IP`/info.php'). 
 Information about the webserver is displayed ![php_info](./images/php_webtest.PNG)
@@ -121,7 +125,7 @@ After creating the testdb and inserting values into it as shown in the figure ab
 I created a new php file using the command: `vim /var/www/lempproject/todo_list.php`
 
 The following PHP script connects to the MySQL database and queries for the content of the todo_list table, displays the results in a list. If there is a problem with the database connection, it will throw an exception:
-
+```
 <?php
 $user = "example_user";
 $password = "password";
@@ -139,7 +143,7 @@ try {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
 }
+```
+Testing this in the url 'http://Public_domain_or_IP/todo_list.php'. The following webpage is displayed ![web_test](./images/webtodo_list.PNG)
 
-Testing this in the url 'http://<Public_domain_or_IP>/todo_list.php'. The following webpage is displayed ![web_test](./images/webtodo_list.PNG)
-
-The PHP environment is readt to connect and interact with the SQL server. 
+The PHP environment is ready to connect and interact with the SQL server. 
